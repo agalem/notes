@@ -26,6 +26,10 @@ if (array_key_exists("submit", $_POST)) {
 
         $error .= "Podaj adres email<br>";
 
+    } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+
+        $error .= "Podany adres email nie jest prawidłowy<br>";
+
     }
 
     if (!$_POST['password']) {
@@ -33,12 +37,7 @@ if (array_key_exists("submit", $_POST)) {
         $error .= "Podaj hasło<br>";
 
     }
-
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-
-        $error .= "Podany adres email nie jest prawidłowy<br>";
-
-    }
+    
 
     if ($error != "") {
 
