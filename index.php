@@ -34,6 +34,12 @@ if (array_key_exists("submit", $_POST)) {
 
     }
 
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+
+        $error .= "Podany adres email nie jest prawidłowy<br>";
+
+    }
+
     if ($error != "") {
 
         $error = "<p>W twoim formularzu wystapiły błędy:</p>".$error;
